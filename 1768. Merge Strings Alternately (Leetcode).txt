@@ -1,0 +1,26 @@
+class Solution {
+public:
+    string mergeAlternately(string w1, string w2) {
+       int n=w1.length();
+       int m=w2.length();
+       int i=0,j=0;
+       string ans="";
+       while(i<n && j<m)
+       {
+        ans=ans+w1[i]+w2[j];
+        i++;
+        j++;
+       }
+       while(i<n)
+       {
+           ans+=w1[i];
+           i++;
+       } 
+       while(j<m)
+       {
+           ans+=w2[j];
+           j++;
+       }
+       return ans;
+    }
+};
