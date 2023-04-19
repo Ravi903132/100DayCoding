@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;cin>>n;
+    vector<int> m(2*n);
+    for(int i=0;i<2*n;i++)
+    {
+        cin>>m[i];
+    }
+    int i=0,j=n;
+    vector<int> v;
+    while(j<2*n)
+    {
+       v.push_back(m[i]);
+       v.push_back(m[j]);
+       i++;
+       j++;
+    }
+    for(auto x: v)
+    {
+        cout<<x<<" ";
+    }
+}
