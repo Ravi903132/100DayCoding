@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int maxsubarray(vector<int>& num1,vector<int>& num2)
+{
+   int n = num1.size(), m = num2.size();
+        vector<vector<int>> dp(n, vector<int>(m, 0));
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (num1[i] == num2[j]) {
+                    if (i == 0 || j == 0) dp[i][j] = 1;
+                    else dp[i][j] = dp[i-1][j-1] + 1;
+                    ans = max(ans, dp[i][j]);
+                }
+            }
+        }
+        return ans;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> num1(n);
+    vector<int> num2(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>num1[i];
+    }
+    for(int i=0;i<n;i++)
+    {
+        cin>>num2[i];
+    }
+    cout<<maxsubarray(num1,num2);
+}
