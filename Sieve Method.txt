@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void solve(int& a,int& b)
+{
+    vector<bool> m(b,true);
+    for(int i=2;i*i<=b;i++)
+    {
+        if(m[i]==true)
+        {
+            for(int j=i*i;j<=b;j=j+i)
+            {
+                m[j]=false;
+            }
+        }
+    }
+    for(int i=a;i<=b;i++)
+    {
+        if(m[i])
+        {
+            cout<<i<<" ";
+        }
+    }
+    
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int a,b;cin>>a>>b;
+        solve(a,b);
+        cout<<"\n";
+    }
+}
